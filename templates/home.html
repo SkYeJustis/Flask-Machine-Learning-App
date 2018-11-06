@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>Bank Term Deposit Subscription: Prediction App</title>
+<body>
+
+<h1>Bank Term Deposit Subscription: Prediction App</h1>
+
+<form action = "/getSubscriptionOutcome" method="POST">
+
+<p> Select Age: <input name="age" type ="number" min="1" max="120" /> </p>
+<p> Select Job: <select name="job">
+<option value="admin.">Admin</option>
+<option value="unknown">Unknown</option>
+<option value="unemployed">Unemployed</option>
+<option value="management">Management</option>
+<option value="housemaid" selected>Housemaid</option>
+<option value="entrepreneur">Entrepreneur</option>
+<option value="student">Student</option>
+<option value="blue-collar" selected>Blue-collar</option>
+<option value="self-employed" selected>Self-employed </option>
+<option value="retired" selected>Retired</option>
+<option value="technician" selected>Technician </option>
+<option value="services" selected>Services</option>
+</select> </p>
+<p> Select Marital status: <select name="marital">
+<option value="married">Married</option>
+<option value="divorced">Divorced</option>
+<option value="single">Single</option>
+</select> </p>
+<p> Select Education: <select name="education">
+<option value="unknown">Unknown</option>
+<option value="secondary">Secondary</option>
+<option value="primary">Primary</option>
+<option value="tertiary">Tertiary</option>
+</select> </p>
+<p> Has credit in default: <select name="default">
+<option value="no">No</option>
+<option value="yes">Yes</option>
+</select> </p>
+<p> Input average yearly balance (euros): <input name="balance" type ="number" /> </p>
+<p> Has housing loan: <select name="housing">
+<option value="no">No</option>
+<option value="yes">Yes</option>
+</select> </p>
+<p> Has personal loan: <select name="loan">
+<option value="no">No</option>
+<option value="yes">Yes</option>
+</select> </p>
+<p> Select contact communication type: <select name="contact">
+<option value="unknown">Unknown</option>
+<option value="telephone">Telephone</option>
+<option value="cellular">Cellular</option>
+</select> </p>
+<p> Select month: <select name="month">
+<option value="jan">Jan</option>
+<option value="feb">Feb</option>
+<option value="mar">Mar</option>
+<option value="apr">Apr</option>
+<option value="may">May</option>
+<option value="jun">Jun</option>
+<option value="jul">Jul</option>
+<option value="aug">Aug</option>
+<option value="sep">Sep</option>
+<option value="oct">Oct</option>
+<option value="nov">Nov</option>
+<option value="dec">Dec</option>
+</select> </p>
+<p> Select day of month: <input name="day" type ="number" min="1" max="31" /> </p>
+<p> Select last contact duration (seconds): <input name="duration" type ="number" min="0"/> </p>
+<p> Number of contacts performed during this campaign and for this client (seconds): <input name="campaign" type ="number" min="0"/> </p>
+<p> Number of days that passed by after the client was last contacted from a previous campaign: <input name="pdays" type ="number" min="-1"/> </p>
+<p> Number of contacts performed before this campaign and for this client (seconds): <input name="previous" type ="number" min="0"/> </p>
+<p> Select outcome of the previous marketing campaign: <select name="poutcome">
+<option value="unknown">Unknown</option>
+<option value="other">Other</option>
+<option value="failure">Failure</option>
+<option value="success">Success</option>
+</select> </p>
+
+<center> <p> <input type ="submit" value="submit" /> </p> </center>
+
+</form>
+</body>
+</html>
