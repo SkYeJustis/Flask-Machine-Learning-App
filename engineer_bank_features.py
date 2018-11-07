@@ -104,9 +104,39 @@ def determine_poutcome(input_df):
         input_df['poutcome_success'] = 1
     else:
         pass
-    
+
+def determine_gender(input_df):
+    if input_df['Gender'][0]=="Female":
+        input_df['Gender_Female'] = 1
+
+def determine_married(input_df):
+    if input_df['Married'][0]=="Yes":
+        input_df['Married_Yes'] = 1
+
+def determine_edu_cat(input_df):
+    if input_df['Education'][0]=='Graduate':
+        input_df['Education_Graduate'] = 1
+
+def determine_self_emp(input_df):
+    if input_df['Self_Employed'][0]=="Yes":
+        input_df['Self_Employed_Yes'] = 1
+
+def determine_prop_area(input_df):
+    if input_df['Property_Area'][0]=="Rural":
+        input_df['Property_Area_Rural'] = 1
+    elif input_df['Property_Area'][0]=="Urban":
+        input_df['Property_Area_Urban'] = 1
+
+def determine_dependent(input_df):
+    if input_df['Dependents'][0]=="0":
+        input_df['Dependents_0'] = 1
+    elif input_df['Dependents'][0]=="1":
+        input_df['Dependents_1'] = 1
+    elif input_df['Dependents'][0]=="2":
+        input_df['Dependents_2'] = 1
+
 def convert_to_yn(input_char):
-    if input_char == 0:
-        return 'no'
+    if input_char == 0 or input_char == 'N':
+        return 'No'
     else:
-        return 'yes'
+        return 'Yes'
