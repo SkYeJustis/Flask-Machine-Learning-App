@@ -2,13 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for
 
 import pickle
 import pandas as pd
-from engineer_bank_features import determine_marital, determine_job, determine_edu, \
+from utils.engineer_bank_features import determine_marital, determine_job, determine_edu, \
     determine_default, determine_loan, determine_contact, determine_poutcome, determine_month, \
     convert_to_yn, \
     determine_gender, determine_married, determine_edu_cat, determine_self_emp, \
     determine_prop_area, determine_dependent
 
-from prediction_helpers import auc
+from utils.prediction_helpers import auc
 
 app = Flask(__name__)
 
@@ -127,7 +127,7 @@ def get_subscription_outcome():
 
         if model_type:
             # load the model - random forest
-            pkl_file = open('bank-marketing-sklearn-rf.pkl', 'rb')
+            pkl_file = open('models/bank-marketing-sklearn-rf.pkl', 'rb')
             rfmodel = pickle.load(pkl_file)
             prediction = rfmodel.predict(input_df.values)
 
@@ -138,7 +138,7 @@ def get_subscription_outcome():
             # load the model - keras
             from keras.models import load_model
 
-            nn = load_model('bank-marketing-keras-nn.h5',
+            nn = load_model('models/bank-marketing-keras-nn.h5',
                             custom_objects={'auc': auc})
 
             input_df = input_df.as_matrix()
@@ -225,7 +225,7 @@ def get_loan_outcome():
 
         if model_type:
             # load the model - random forest
-            pkl_file = open('bank-loan-sklearn-rf.pkl', 'rb')
+            pkl_file = open('models/bank-loan-sklearn-rf.pkl', 'rb')
             rf = pickle.load(pkl_file)
             prediction = rf.predict(input_df.values)
 
@@ -236,7 +236,7 @@ def get_loan_outcome():
             # load the model - keras
             from keras.models import load_model
 
-            nn = load_model('bank-loan-keras-nn.h5',
+            nn = load_model('models/bank-loan-keras-nn.h5',
                             custom_objects={'auc': auc})
 
             input_df = input_df.as_matrix()
@@ -252,3 +252,5 @@ def get_loan_outcome():
 if __name__ == '__main__':
 	app.debug = True
 	app.run()
+
+    # Local run: Go to http://127.0.0.1:5000/
